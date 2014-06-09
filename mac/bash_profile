@@ -2,4 +2,4 @@ export CLICOLOR=1
 export LSCOLORS=ExFxCxDxBxegedabagacad
 alias ll="ls -l"
 
-export PATH=$HOME/bin:$PATH:/usr/local/sbin
+export PATH=$HOME/.bin:$PATH:/usr/local/sbin
