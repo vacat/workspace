@@ -1,6 +1,14 @@
 #!/usr/bin/env bash
 
+##############################################################################
+##  global variable define
+##############################################################################
+ARCH="noarch"
 OS="unknown"
+
+## profile list
+BASH_PROFILE=$HOME/.bash_profile
+GIT_PROFILE=$HOME/.gitconfig
 
 if [ $OSTYPE == linux-gnu ]; then
     OS="linux" 
@@ -30,12 +38,19 @@ fi
 
 echo $CURDIR
 
-BASH_PROFILE=$HOME/.bash_profile
-
 echo $BASH_PROFILE
 
-# symlink .vimrc
+# symlink .bash_profile
 if [ -f $BASH_PROFILE ]; then
     mv "$BASH_PROFILE" "$BASH_PROFILE.bak"
 fi
 ln -s "$CURDIR/$OS/bash_profile" "$BASH_PROFILE"
+
+
+echo $GIT_PROFILE
+
+# symlink .gitconfig
+if [ -f $GIT_PROFILE ]; then
+  mv "$GIT_PROFILE" "$GIT_PROFILE.bak"
+fi
+ln -s "$CURDIR/$ARCH/gitconfig" "$GIT_PROFILE"
